@@ -1533,8 +1533,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 835380437}
-  - {fileID: 284663426}
   - {fileID: 705507995}
+  - {fileID: 284663426}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2057779501 stripped
