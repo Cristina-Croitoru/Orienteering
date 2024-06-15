@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
 
-    public float speed = 12f;
-    public float gravity = -9.81f * 2;
+    public float walkspeed = 6f;
+    public float sprintSpeed = 11f;
+    public float gravity = -18.81f * 2;
     public float jumpHeight = 3f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public KeyCode sprintKey = KeyCode.LeftShift;
+
     Vector3 velocity;
 
-    bool isGrounded;
+    public bool isGrounded;
 
     // Update is called once per frame
     void Update()
@@ -35,7 +39,10 @@ public class PlayerMovement : MonoBehaviour
         //right is the red Axis, foward is the blue axis
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+        if(Input.GetKey(sprintKey) & isGrounded)
+            controller.Move(move * sprintSpeed * Time.deltaTime);
+        else if(!Input.GetKey(sprintKey) | !isGrounded)
+            controller.Move(move * walkspeed * Time.deltaTime);
 
         //check if the player is on the ground so he can jump
         if (Input.GetButtonDown("Jump") && isGrounded)

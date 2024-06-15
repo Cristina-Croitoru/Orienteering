@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class mouseMovement : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
 
-    float xRotation = 0f;
-    float YRotation = 0f;
+
+    public float sensX;
+    public float sensY;
+
+    public Transform orientation;
+    public Transform CamHolder;
+
+    float xRotation;
+    float YRotation;
 
     void Start()
     {
         //Locking the cursor to the middle of the screen and making it invisible
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+       CamMovement();
+    }
+
+    public void CamMovement()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
+
+        //control rotation around y axis (Look up and down)
+        YRotation += mouseX;
 
         //control rotation around x axis (Look up and down)
         xRotation -= mouseY;
@@ -26,11 +41,10 @@ public class mouseMovement : MonoBehaviour
         //we clamp the rotation so we cant Over-rotate (like in real life)
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //control rotation around y axis (Look up and down)
-        YRotation += mouseX;
-
         //applying both rotations
         transform.localRotation = Quaternion.Euler(xRotation, YRotation, 0f);
 
+        CamHolder.rotation = Quaternion.Euler(xRotation, YRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, YRotation, 0);
     }
 }
