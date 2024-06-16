@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: cf96b1924ce65cf4d8087493dca29d66
+  - enabled: 1
+    path: Assets/Scenes/BrightDay.unity
+    guid: 106025b4713992744bb2e8999d6a3608
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: f38d3f0cba71a544c9276df08d9a0621
   m_configObjects: {}
