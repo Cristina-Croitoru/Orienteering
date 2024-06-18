@@ -5,20 +5,20 @@ using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    public CharacterController controller;   // reference to the CharacterController component attached to the player
 
     public float walkspeed = 6f;
     public float sprintSpeed = 11f;
-    public float gravity = -18.81f * 2;
-    public float jumpHeight = 3f;
+    public float gravity = -18.81f * 2;   // gravity force applied to the player
+    public float jumpHeight = 3f;         // height the player can jump
 
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    public Transform groundCheck;         // check if the player is on the ground
+    public float groundDistance = 0.4f;   // radius of the ground check sphere
+    public LayerMask groundMask;          // to specify what layers count as ground
 
-    public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode sprintKey = KeyCode.LeftShift;   //  key used to trigger sprinting
 
-    Vector3 velocity;
+    Vector3 velocity;        // stores the player's velocity
 
     public bool isGrounded;
 
@@ -30,10 +30,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -2f;     // resets the vertical velocity when the player is grounded
         }
 
-        float x = Input.GetAxis("Horizontal");
+        float x = Input.GetAxis("Horizontal");  // the input for horizontal and vertical movement
         float z = Input.GetAxis("Vertical");
 
         //right is the red Axis, foward is the blue axis
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(sprintKey) & isGrounded)
             controller.Move(move * sprintSpeed * Time.deltaTime);
-        else if(!Input.GetKey(sprintKey) | !isGrounded)
+        else if(!Input.GetKey(sprintKey) | !isGrounded)               // "|" is logical OR !!!!! not conditional
             controller.Move(move * walkspeed * Time.deltaTime);
 
         //check if the player is on the ground so he can jump
@@ -51,8 +51,8 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime;             // applies gravity to the player's vertical velocity
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);         // moves the player based on the current velocity
     }
 }

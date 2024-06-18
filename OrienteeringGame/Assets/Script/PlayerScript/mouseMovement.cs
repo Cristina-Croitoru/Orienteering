@@ -6,13 +6,13 @@ public class mouseMovement : MonoBehaviour
 {
 
 
-    public float sensX;
+    public float sensX;    // variables that will control the sensitivity of the mouse movement
     public float sensY;
 
-    public Transform orientation;
+    public Transform orientation;  // variables are for assigning the orientation and camera holder objects in the Unity Editor
     public Transform CamHolder;
 
-    float xRotation;
+    float xRotation;  // variables will store the rotation values for the X and Y axes
     float YRotation;
 
     void Start()
@@ -24,7 +24,7 @@ public class mouseMovement : MonoBehaviour
 
     void Update()
     {
-       CamMovement();
+       CamMovement();   // calls the CamMovement method
     }
 
     public void CamMovement()
@@ -32,7 +32,7 @@ public class mouseMovement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
 
-        //control rotation around y axis (Look up and down)
+        //control rotation around y axis (Look left and right)
         YRotation += mouseX;
 
         //control rotation around x axis (Look up and down)
