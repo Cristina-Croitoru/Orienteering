@@ -3542,9 +3542,10 @@ MonoBehaviour:
   first: 1
   second: 1
   check: 0
-  TextA: 
-  TextB: 
-  TextC: 
+  TextA: Faster! Faster!
+  TextB: Oh yes you did it! Press F for your last clue!
+  TextC: The exit is always at the end of the road... and towards a big blue mushroom
+    sometimes!
 --- !u!205 &205755822440329498
 LODGroup:
   m_ObjectHideFlags: 0
@@ -3630,9 +3631,10 @@ MonoBehaviour:
   first: 1
   second: 1
   check: 0
-  TextA: msg 1
-  TextB: MSG 2
-  TextC: Yay
+  TextA: Hi! You seem lost! Come here!
+  TextB: Press F to interact with me!
+  TextC: Yay! If you want to visit my friend go down the hill towords the big brown
+    mushroom!
 --- !u!205 &205755822729490973
 LODGroup:
   m_ObjectHideFlags: 0
@@ -3697,9 +3699,9 @@ MonoBehaviour:
   first: 1
   second: 1
   check: 0
-  TextA: 
-  TextB: 
-  TextC: 
+  TextA: Oh! Hello, mate! Come closer!
+  TextB: So I heard you met Jeb. Press F to find your next clue!
+  TextC: Our next friend is kind of shy, find her in the woods!
 --- !u!205 &205755822988910956
 LODGroup:
   m_ObjectHideFlags: 0
@@ -3764,9 +3766,9 @@ MonoBehaviour:
   first: 1
   second: 1
   check: 0
-  TextA: 
-  TextB: 
-  TextC: 
+  TextA: Hi!!! What are you doing around here?
+  TextB: Oh I see.. then press F for your next clue!
+  TextC: Jimmy is always on the right path!
 --- !u!205 &205755823728181735
 LODGroup:
   m_ObjectHideFlags: 0
@@ -3831,9 +3833,9 @@ MonoBehaviour:
   first: 1
   second: 1
   check: 0
-  TextA: 
-  TextB: 
-  TextC: 
+  TextA: Oh... Hi, stranger! I see you found me!
+  TextB: Press F and I will tell you the nex clue!
+  TextC: Bob is a fan of a good rock!
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
